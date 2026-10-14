@@ -8,6 +8,8 @@ ROCQFLAGS := -Q ../src Paco -Q . PacoExamples
 
 all: $(EXAMPLES:.v=.vo)
 
+$(EXAMPLES:.v=.vo): ../src/paco.vo
+
 %.vo: %.v
 	rocq compile $(ROCQFLAGS) $<
 
