@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "rocq-paco"
-version: "4.2.3+rocq9.2"
+version: "4.2.3+rocq9.3"
 synopsis: "Rocq library for parametric coinduction"
 description: """
 Paco is a library for parametric coinduction, with support for
