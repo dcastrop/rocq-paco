@@ -6,7 +6,7 @@ if len(sys.argv) < 2:
     sys.exit(1)
 n = int(sys.argv[1])
 
-print ("Require Export Program.Basics. Open Scope program_scope.")
+print ("From Corelib Require Export Program.Basics. Open Scope program_scope.")
 print ("From Paco Require Import paconotation_internal paco_internal pacotac_internal.")
 print ("From Paco Require Export paconotation.")
 print ("Set Implicit Arguments.")

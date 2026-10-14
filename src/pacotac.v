@@ -1,5 +1,5 @@
 
-Require Import Program.Tactics.
+From Corelib Require Import Program.Tactics.
 From Paco Require Export paconotation.
 From Paco Require Import pacotac_internal pacoall.
 Set Implicit Arguments.

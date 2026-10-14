@@ -6,12 +6,12 @@ maxsize=14
 
 rm -f $PACOSRCDIR/paco*.v
 rm -f $PACOSRCDIR/gpaco*.v
-python paconotation.py $(expr $maxsize + 1) > $PACOSRCDIR/paconotation.v
-python paconotation_internal.py $maxsize > $PACOSRCDIR/paconotation_internal.v
+python3 paconotation.py $(expr $maxsize + 1) > $PACOSRCDIR/paconotation.v
+python3 paconotation_internal.py $maxsize > $PACOSRCDIR/paconotation_internal.v
 cp paco_internal.v $PACOSRCDIR/paco_internal.v
-python pacotac_internal.py $maxsize > $PACOSRCDIR/pacotac_internal.v
-python pacotac.py $maxsize > $PACOSRCDIR/pacotac.v
-python gpacotac.py $maxsize > $PACOSRCDIR/gpacotac.v
+python3 pacotac_internal.py $maxsize > $PACOSRCDIR/pacotac_internal.v
+python3 pacotac.py $maxsize > $PACOSRCDIR/pacotac.v
+python3 gpacotac.py $maxsize > $PACOSRCDIR/gpacotac.v
 
 echo "" > $PACOSRCDIR/pacoall.v
 echo "" > $PACOSRCDIR/gpacoall.v

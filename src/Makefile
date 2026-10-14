@@ -1,28 +1,33 @@
-COQMODULE    := Paco
-COQTHEORIES  := $(wildcard *.v)
-COQTHEORIES  := $(filter-out example_upto.v, $(COQTHEORIES))
+ROCQMODULE   := Paco
+ROCQTHEORIES := $(sort $(wildcard *.v))
+ROCQMAKEFILE := Makefile.rocq
 
-.PHONY: all theories clean doc
+.PHONY: all quick install uninstall clean doc install-doc
 
-all: Makefile.coq
-	$(MAKE) -f Makefile.coq all
+all: $(ROCQMAKEFILE)
+	$(MAKE) -f $(ROCQMAKEFILE) all
 
-quick: Makefile.coq
-	$(MAKE) -f Makefile.coq quick
+quick: $(ROCQMAKEFILE)
+	$(MAKE) -f $(ROCQMAKEFILE) quick
 
-Makefile.coq: Makefile $(COQTHEORIES)
-	(echo "-Q . $(COQMODULE)"; \
-   \
-   echo $(COQTHEORIES)) > _CoqProject
-	coq_makefile -f _CoqProject -o Makefile.coq
+install: $(ROCQMAKEFILE)
+	$(MAKE) -f $(ROCQMAKEFILE) install
 
-doc: Makefile.coq
-	$(MAKE) -f Makefile.coq html
+uninstall: $(ROCQMAKEFILE)
+	$(MAKE) -f $(ROCQMAKEFILE) uninstall
+
+$(ROCQMAKEFILE): Makefile $(ROCQTHEORIES)
+	(echo "-Q . $(ROCQMODULE)"; \
+	 echo $(ROCQTHEORIES)) > _RocqProject
+	rocq makefile -f _RocqProject -o $(ROCQMAKEFILE)
+
+doc: $(ROCQMAKEFILE)
+	$(MAKE) -f $(ROCQMAKEFILE) html
 	cp index.html main.css html
 
 install-doc: doc
-	$(MAKE) -f Makefile.coq install-doc
+	$(MAKE) -f $(ROCQMAKEFILE) install-doc
 
-clean: Makefile.coq
-	$(MAKE) -f Makefile.coq cleanall
-	rm -f _CoqProject Makefile.coq Makefile.coq.conf
+clean:
+	if [ -f $(ROCQMAKEFILE) ]; then $(MAKE) -f $(ROCQMAKEFILE) cleanall; fi
+	rm -f _RocqProject $(ROCQMAKEFILE) $(ROCQMAKEFILE).conf .$(ROCQMAKEFILE).d

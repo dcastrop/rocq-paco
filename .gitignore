@@ -9,3 +9,9 @@
 \#*\#
 *~
 html/
+Makefile.rocq
+Makefile.rocq.conf
+.Makefile.rocq.d
+_RocqProject
+.lia.cache
+.*.aux

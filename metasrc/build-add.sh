@@ -10,7 +10,7 @@ PACOSRCDIR=../src
 
 relsize=$1
 
-python paco.py ${relsize} > $PACOSRCDIR/paco${relsize}.v;
-python gpaco.py ${relsize} > $PACOSRCDIR/gpaco${relsize}.v;
+python3 paco.py ${relsize} > $PACOSRCDIR/paco${relsize}.v;
+python3 gpaco.py ${relsize} > $PACOSRCDIR/gpaco${relsize}.v;
 echo "From Paco Require Export paco${relsize}." >> $PACOSRCDIR/pacoall.v;
 echo "From Paco Require Export gpaco${relsize}." >> $PACOSRCDIR/gpacoall.v;

@@ -1,4 +1,4 @@
-Require Export Program.Basics. Open Scope program_scope.
+From Corelib Require Export Program.Basics. Open Scope program_scope.
 From Paco Require Import paco4 pacotac.
 Set Implicit Arguments.
 
@@ -9,7 +9,7 @@ Variable T1 : forall (x0: @T0), Type.
 Variable T2 : forall (x0: @T0) (x1: @T1 x0), Type.
 Variable T3 : forall (x0: @T0) (x1: @T1 x0) (x2: @T2 x0 x1), Type.
 
-Local Notation rel := (rel4 T0 T1 T2 T3).
+Local Abbreviation rel := (rel4 T0 T1 T2 T3).
 
 Section RClo.
 

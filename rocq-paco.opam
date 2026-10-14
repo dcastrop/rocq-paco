@@ -1,0 +1,40 @@
+opam-version: "2.0"
+name: "rocq-paco"
+version: "4.2.3+rocq9.2"
+synopsis: "Rocq library for parametric coinduction"
+description: """
+Paco is a library for parametric coinduction, with support for
+up-to techniques via the companion (gpaco). This is a port of
+snu-sf/paco to Rocq 9.2+: it depends only on rocq-core and builds
+without warnings. The logical path is unchanged (From Paco Require ...).
+"""
+maintainer: "David Castro-Perez <david.castro.dcp@gmail.com>"
+authors: [
+  "Chung-Kil Hur"
+  "Georg Neis"
+  "Derek Dreyer"
+  "Viktor Vafeiadis"
+  "Minki Cho"
+]
+license: "BSD-3-Clause"
+homepage: "https://github.com/snu-sf/paco"
+bug-reports: "https://github.com/snu-sf/paco/issues"
+depends: [
+  "rocq-core" {>= "9.2"}
+  "rocq-stdlib" {with-test}
+]
+conflicts: [
+  "coq-paco"
+]
+build: [
+  [make "-j%{jobs}%" "all"]
+  [make "-j%{jobs}%" "test"] {with-test}
+]
+install: [make "install"]
+tags: [
+  "logpath:Paco"
+  "category:Computer Science/Semantics"
+  "keyword:coinduction"
+  "keyword:upto techniques"
+  "keyword:parameterized coinduction"
+]

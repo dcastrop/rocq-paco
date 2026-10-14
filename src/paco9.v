@@ -1,4 +1,4 @@
-Require Export Program.Basics. Open Scope program_scope.
+From Corelib Require Export Program.Basics. Open Scope program_scope.
 From Paco Require Import paconotation_internal paco_internal pacotac_internal.
 From Paco Require Export paconotation.
 Set Implicit Arguments.

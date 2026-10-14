@@ -4,8 +4,8 @@
 (** printing -> $\rightarrow$ #&rarr;# *)
 (** printing /\ $\land$ #&and;# *)
 
-Require Import ZArith List String.
-Require Import Paco.paco.
+From Stdlib Require Import ZArith List String.
+From Paco Require Import paco.
 Import ListNotations.
 
 Set Implicit Arguments.
@@ -80,7 +80,7 @@ Proof.
   pclearbot. right. apply CIH. punfold R.
 Qed.
 
-Require Import Program Classical.
+From Stdlib Require Import Program Classical.
 
 Inductive zeros_star (P: stream nat -> Prop) : stream nat -> Prop :=
 | zs_base t (BASE: P t): zeros_star P t

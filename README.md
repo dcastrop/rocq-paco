@@ -1,6 +1,12 @@
-# Paco: Coq library for Parametric Coinduction
+# rocq-paco: Paco for Rocq 9.2+
 
-[![Build Status](https://travis-ci.com/snu-sf/paco.svg?branch=master)](https://app.travis-ci.com/github/snu-sf/paco)
+This is a port of [snu-sf/paco](https://github.com/snu-sf/paco) (v4.2.3) to the Rocq Prover 9.2 and later.
+It depends only on `rocq-core`, builds without warnings, and keeps the logical path `Paco`,
+so existing `From Paco Require Import paco.` lines work unchanged. See `CHANGES` for what differs
+from upstream.
+
+# Paco: Library for Parametric Coinduction
+
 [![License](https://img.shields.io/badge/license-BSD3-blue.svg)](https://github.com/snu-sf/paco)
 
 Paco is a Coq library for parametric coinduction.  For more information, please see:
@@ -13,21 +19,21 @@ Paco also supports upto techniques using "companion".  See:
 
 Minki Cho refactored the implementation to speed up the compilation time.
 
-The current version is v4.1.2, and it's compatible with Coq 8.13 - 8.15.
+This port requires Rocq 9.2 or later (it uses the `Abbreviation` command introduced in 9.2).
+For older Coq versions, use upstream `coq-paco`.
 
 
 ## Installation
 
 ```bash
-# from opam
-opam repo add coq-released https://coq.inria.fr/opam/released
-opam install coq-paco
+# pin into the current opam switch (conflicts with coq-paco, which it replaces)
+opam pin add rocq-paco <path-or-git-url-of-this-repo>
 
 # from source
-cd src; make; make install          # for library files
-cd webpage; make                    # for documentation
+make && make install     # library files
+make test                # compile the examples (needs rocq-stdlib)
 ```
 
 ## Examples
 
-See [`/src/examples.v`](/src/examples.v) and [`/src/tutorial.v`](/src/tutorial.v) for examples.
+See [`/examples/examples.v`](/examples/examples.v) and [`/examples/tutorial.v`](/examples/tutorial.v) for examples.

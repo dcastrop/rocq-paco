@@ -1,7 +1,7 @@
-Require Import Paco.paco.
-Require Import Program.Tactics.
-Require Import RelationClasses.
-Require Import Morphisms.
+From Paco Require Import paco.
+From Corelib Require Import Program.Tactics.
+From Corelib Require Import Classes.RelationClasses.
+From Corelib Require Import Classes.Morphisms.
 
 Set Implicit Arguments.
 

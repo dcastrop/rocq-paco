@@ -1,4 +1,4 @@
-Require Export Program.Basics. Open Scope program_scope.
+From Corelib Require Export Program.Basics. Open Scope program_scope.
 From Paco Require Import paco1 pacotac.
 Set Implicit Arguments.
 
@@ -6,7 +6,7 @@ Section GeneralizedPaco1.
 
 Variable T0 : Type.
 
-Local Notation rel := (rel1 T0).
+Local Abbreviation rel := (rel1 T0).
 
 Section RClo.
 

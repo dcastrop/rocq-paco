@@ -6,7 +6,7 @@ if len(sys.argv) < 2:
     sys.exit(1)
 n = int(sys.argv[1])
 
-print ("Require Export Program.Basics. Open Scope program_scope.")
+print ("From Corelib Require Export Program.Basics. Open Scope program_scope.")
 print ("From Paco Require Import paco"+str(n)+" pacotac.")
 print ("Set Implicit Arguments.")
 print ("")
@@ -18,7 +18,7 @@ for i in range(n):
         print (" (x"+str(j)+": @T"+str(j)+itrstr(" x",j)+")",end="")
     print (ifpstr(i,", ")+"Type.")
 print ("")
-print ("Local Notation rel := (rel"+str(n)+""+itrstr(" T", n)+").")
+print ("Local Abbreviation rel := (rel"+str(n)+""+itrstr(" T", n)+").")
 print ("")
 print ("Section RClo.")
 print ("")

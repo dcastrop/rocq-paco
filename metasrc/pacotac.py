@@ -9,8 +9,8 @@ if len(sys.argv) < 2:
 relsize = int(sys.argv[1])
 n = relsize
 
-print ("""
-Require Import Program.Tactics.
+print (r"""
+From Corelib Require Import Program.Tactics.
 From Paco Require Export paconotation.
 From Paco Require Import pacotac_internal pacoall.
 Set Implicit Arguments.

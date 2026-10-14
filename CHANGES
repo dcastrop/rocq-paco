@@ -1,3 +1,17 @@
+rocq-paco: port of v4.2.3 to Rocq 9.2+
+=========================
+- Require Rocq 9.2 or later; depend only on rocq-core.
+- Use "Local Abbreviation" instead of the deprecated "Local Notation" for
+  abbreviations (gpaco{n}.v).
+- Import Program.Basics / Program.Tactics explicitly from Corelib.
+- Move examples.v, tutorial.v and example_upto.v out of the library into
+  examples/; they are no longer installed as Paco.examples / Paco.tutorial.
+  They import from Stdlib with explicit prefixes and are built by "make test".
+- Build with "rocq makefile" (Makefile.rocq, _RocqProject) and add a
+  top-level Makefile and rocq-paco.opam.
+- Generators (metasrc/) run with python3; regenerate with "cd metasrc; sh build.sh".
+- No changes to definitions, lemmas or tactics.
+
 changes from v3.0.0 to v4.0.0
 =========================
 - Support "paco" and "gpaco", and remove "gcpn".
